@@ -6,6 +6,7 @@ const connectDB = require('./config/database');
 // Import routes
 const codeGeneratorRoutes = require('./routes/codeGenerator');
 const bugChallengeRoutes = require('./routes/bugChallenge');
+const buggySQLRoutes = require('./routes/buggySQL');
 
 // Load environment variables
 dotenv.config();
@@ -22,6 +23,7 @@ app.use(express.json());
 // Routes
 app.use('/api/code-generator', codeGeneratorRoutes);
 app.use('/api/bug-challenges', bugChallengeRoutes);
+app.use('/api/buggy-sql', buggySQLRoutes);
 
 const PORT = process.env.PORT || 3000;
 

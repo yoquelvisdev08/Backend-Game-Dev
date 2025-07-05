@@ -63,6 +63,90 @@ POST /api/bug-challenges/generate
 }
 ```
 
+## 📊 SQL Challenge Endpoints
+
+### Generate SQL Challenges
+```http
+POST /api/buggy-sql/generate
+```
+
+#### Request Body
+```json
+{
+    "difficulty": "easy | medium | hard",
+    "category": "joins | subqueries | aggregations | group_by | where_having | performance | syntax",
+    "questionsCount": "number",
+    "mode": "multiple_choice | direct_correction"
+}
+```
+
+#### Response (multiple_choice mode)
+```json
+{
+    "challenges": [
+        {
+            "buggyQuery": "string - query SQL incorrecta",
+            "context": {
+                "tableName": "string",
+                "tableStructure": {
+                    "columns": [
+                        {
+                            "name": "string",
+                            "type": "string",
+                            "description": "string"
+                        }
+                    ]
+                },
+                "expectedResult": "string",
+                "sampleData": "string (opcional)"
+            },
+            "options": [
+                "string - query 1",
+                "string - query 2",
+                "string - query 3",
+                "string - query 4"
+            ],
+            "correctAnswer": "number (0-3)",
+            "explanation": "string",
+            "category": "string",
+            "difficulty": "string"
+        }
+    ],
+    "totalQuestions": "number",
+    "mode": "multiple_choice"
+}
+```
+
+#### Response (direct_correction mode)
+```json
+{
+    "challenges": [
+        {
+            "buggyQuery": "string - query SQL incorrecta",
+            "context": {
+                "tableName": "string",
+                "tableStructure": {
+                    "columns": [
+                        {
+                            "name": "string",
+                            "type": "string",
+                            "description": "string"
+                        }
+                    ]
+                },
+                "expectedResult": "string",
+                "sampleData": "string (opcional)"
+            },
+            "explanation": "string",
+            "category": "string",
+            "difficulty": "string"
+        }
+    ],
+    "totalQuestions": "number",
+    "mode": "direct_correction"
+}
+```
+
 ## 💡 Detalles Importantes
 
 ### Flujo de Generación

@@ -1,15 +1,29 @@
-# Backend para Juego de Velocidad de Código
+# Backend para Juegos de Programación
 
-Este es el backend para un juego de velocidad de escritura de código que utiliza la API de Google Gemini para generar snippets de código y MongoDB para almacenarlos.
+Este es el backend que soporta múltiples juegos de programación, incluyendo un juego de velocidad de escritura de código y un juego de encontrar bugs. Utiliza la API de Google Gemini para generar contenido y MongoDB para almacenamiento.
+
+## 🎮 Juegos Disponibles
+
+### 1. Juego de Velocidad de Código
+- Generación de snippets de código
+- Sistema de dificultad configurable
+- Múltiples lenguajes de programación
+
+### 2. Bug Finder Challenge
+- Desafíos de debugging con opciones múltiples
+- Explicaciones detalladas de los bugs
+- Diferentes niveles de dificultad
+- Soporte para múltiples lenguajes
 
 ## 🚀 Características
 
-- Generación de snippets de código usando Google Gemini API
+- Generación de contenido usando Google Gemini API
 - Almacenamiento en caché con MongoDB Atlas
 - Sistema de dificultad configurable
 - Control de rate limiting
 - Manejo de errores y reintentos
 - Optimización de rendimiento (6-7 segundos por generación)
+- Sistema de fallback a base de datos
 
 ## 📋 Prerrequisitos
 
@@ -62,17 +76,9 @@ Para iniciar el servidor en modo producción:
 npm start
 ```
 
-## 📡 Endpoints API
+## 📡 API Endpoints
 
-### Generar Snippets de Código
-```
-POST /api/generate
-```
-
-Parámetros del body:
-- `difficulty`: Nivel de dificultad (easy, medium, hard)
-- `length`: Longitud deseada del snippet
-- `language`: Lenguaje de programación
+Ver [ENDPOINTS.md](ENDPOINTS.md) para la documentación detallada de todos los endpoints disponibles.
 
 ## ⚡ Rate Limits
 
@@ -86,11 +92,14 @@ src/
   ├── config/
   │   └── database.js
   ├── controllers/
-  │   └── codeGeneratorController.js
+  │   ├── codeGeneratorController.js
+  │   └── bugChallengeController.js
   ├── models/
-  │   └── CodeSnippet.js
+  │   ├── CodeSnippet.js
+  │   └── BugChallenge.js
   ├── routes/
-  │   └── codeGenerator.js
+  │   ├── codeGenerator.js
+  │   └── bugChallenge.js
   └── index.js
 ```
 

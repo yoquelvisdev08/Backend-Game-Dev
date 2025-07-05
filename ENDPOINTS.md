@@ -74,11 +74,42 @@ POST /api/buggy-sql/generate
 ```json
 {
     "difficulty": "easy | medium | hard",
-    "category": "joins | subqueries | aggregations | group_by | where_having | performance | syntax",
+    "category": "string (ver categorías disponibles abajo)",
     "questionsCount": "number",
     "mode": "multiple_choice | direct_correction"
 }
 ```
+
+#### Categorías Disponibles
+
+1. **Categorías Básicas**:
+   - `joins`: Problemas con JOINs
+   - `subqueries`: Subconsultas
+   - `aggregations`: Funciones de agregación
+   - `group_by`: Agrupamiento
+   - `where_having`: Filtrado de datos
+   - `performance`: Rendimiento general
+   - `syntax`: Sintaxis SQL
+
+2. **Optimización**:
+   - `index_usage`: Uso de índices
+   - `query_planning`: Plan de ejecución
+   - `redundant_joins`: JOINs redundantes
+
+3. **Manipulación de Datos**:
+   - `window_functions`: Funciones de ventana
+   - `cte_usage`: Common Table Expressions
+   - `data_transformation`: Transformación de datos
+
+4. **Integridad de Datos**:
+   - `constraints`: Restricciones y claves
+   - `transactions`: Transacciones
+   - `null_handling`: Manejo de NULLs
+
+5. **Casos Especiales**:
+   - `date_time`: Fechas y tiempos
+   - `string_operations`: Operaciones con strings
+   - `recursive_queries`: Queries recursivas
 
 #### Response (multiple_choice mode)
 ```json
@@ -109,7 +140,9 @@ POST /api/buggy-sql/generate
             "correctAnswer": "number (0-3)",
             "explanation": "string",
             "category": "string",
-            "difficulty": "string"
+            "difficulty": "string",
+            "skillLevel": "beginner | intermediate | advanced",
+            "topics": ["performance", "security", "data_integrity", "code_style", "best_practices", "optimization"]
         }
     ],
     "totalQuestions": "number",

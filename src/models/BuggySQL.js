@@ -64,8 +64,37 @@ const buggySQLSchema = new mongoose.Schema({
     category: {
         type: String,
         required: true,
-        enum: ['joins', 'subqueries', 'aggregations', 'group_by', 'where_having', 'performance', 'syntax']
+        enum: [
+            // Categorías básicas
+            'joins', 'subqueries', 'aggregations', 'group_by', 
+            'where_having', 'performance', 'syntax',
+            
+            // Optimización
+            'index_usage', 'query_planning', 'redundant_joins',
+            
+            // Manipulación de datos
+            'window_functions', 'cte_usage', 'data_transformation',
+            
+            // Integridad de datos
+            'constraints', 'transactions', 'null_handling',
+            
+            // Casos especiales
+            'date_time', 'string_operations', 'recursive_queries'
+        ]
     },
+    skillLevel: {
+        type: String,
+        required: true,
+        enum: ['beginner', 'intermediate', 'advanced'],
+        default: 'beginner'
+    },
+    topics: [{
+        type: String,
+        enum: [
+            'performance', 'security', 'data_integrity',
+            'code_style', 'best_practices', 'optimization'
+        ]
+    }],
     createdAt: {
         type: Date,
         default: Date.now

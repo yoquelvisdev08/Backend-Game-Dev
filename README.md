@@ -15,6 +15,34 @@ Este es el backend que soporta múltiples juegos de programación, incluyendo un
 - Diferentes niveles de dificultad
 - Soporte para múltiples lenguajes
 
+### 3. Buggy SQL Challenge
+- Desafíos de corrección de queries SQL
+- Múltiples categorías de problemas
+- Opciones de respuesta múltiple o corrección directa
+- Explicaciones detalladas de las soluciones
+
+### 4. Data Architect Challenge
+- Desafíos de diseño de bases de datos
+  - Normalización (1NF a BCNF)
+  - Optimización de índices y constraints
+  - Modelado de relaciones (1:1, 1:N, N:M)
+  - Diseño de vistas y particionamiento
+- Características principales:
+  - Validación automática de soluciones
+  - Generación de casos de prueba realistas
+  - Explicaciones detalladas de las soluciones
+  - Sistema de puntuación basado en complejidad
+- Categorías de desafíos:
+  - Normalización de esquemas
+  - Optimización de rendimiento
+  - Modelado de relaciones
+  - Diseño de vistas y esquemas
+- Herramientas de aprendizaje:
+  - Pistas contextuales
+  - Ejemplos de datos de prueba
+  - Criterios de éxito claros
+  - Conceptos relacionados sugeridos
+
 ## 🚀 Características
 
 - Generación de contenido usando Google Gemini API
@@ -93,13 +121,19 @@ src/
   │   └── database.js
   ├── controllers/
   │   ├── codeGeneratorController.js
-  │   └── bugChallengeController.js
+  │   ├── bugChallengeController.js
+  │   ├── buggySQLController.js
+  │   └── dataArchitectController.js
   ├── models/
   │   ├── CodeSnippet.js
-  │   └── BugChallenge.js
+  │   ├── BugChallenge.js
+  │   ├── BuggySQL.js
+  │   └── DataArchitectChallenge.js
   ├── routes/
   │   ├── codeGenerator.js
-  │   └── bugChallenge.js
+  │   ├── bugChallenge.js
+  │   ├── buggySQL.js
+  │   └── dataArchitect.js
   └── index.js
 ```
 

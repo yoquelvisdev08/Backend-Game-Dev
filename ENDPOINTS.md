@@ -180,6 +180,112 @@ POST /api/buggy-sql/generate
 }
 ```
 
+## 📐 Data Architect Challenge Endpoints
+
+### Generate Data Architecture Challenges
+```http
+POST /api/data-architect/generate
+```
+
+#### Request Body
+```json
+{
+    "difficulty": "easy | medium | hard",
+    "category": "normalization | indexing | relationships | views | optimization",
+    "type": "1NF_to_2NF | 2NF_to_3NF | denormalized_to_3NF | index_optimization | relationship_design"
+}
+```
+
+#### Response
+```json
+{
+    "title": "string - título del desafío",
+    "description": "string - descripción del problema",
+    "category": "string - categoría del desafío",
+    "type": "string - tipo específico del desafío",
+    "initialSchema": {
+        "tables": [
+            {
+                "name": "string",
+                "columns": [
+                    {
+                        "name": "string",
+                        "type": "string",
+                        "constraints": ["string"],
+                        "description": "string"
+                    }
+                ],
+                "constraints": ["string"],
+                "indexes": [
+                    {
+                        "name": "string",
+                        "columns": ["string"],
+                        "type": "string"
+                    }
+                ]
+            }
+        ],
+        "relationships": [
+            {
+                "type": "1:N | N:M | 1:1",
+                "tables": ["string", "string"],
+                "description": "string"
+            }
+        ]
+    },
+    "task": {
+        "objective": "string",
+        "requirements": ["string"],
+        "hints": ["string"]
+    },
+    "expectedSolution": {
+        "tables": ["array - similar structure to initialSchema"],
+        "relationships": ["array - similar to initialSchema relationships"],
+        "sql_statements": ["string - SQL para crear el esquema"],
+        "explanation": "string - explicación detallada de la solución"
+    },
+    "validation": {
+        "test_cases": [
+            {
+                "input": "string - SQL query",
+                "expected_output": "string - resultado esperado"
+            }
+        ],
+        "success_criteria": ["string"]
+    },
+    "metadata": {
+        "points": "number",
+        "estimated_time": "string",
+        "prerequisites": ["string"],
+        "related_concepts": ["string"]
+    },
+    "difficulty": "string"
+}
+```
+
+#### Categorías Disponibles
+
+1. **Normalización**:
+   - `1NF_to_2NF`: Primera a Segunda Forma Normal
+   - `2NF_to_3NF`: Segunda a Tercera Forma Normal
+   - `denormalized_to_3NF`: Desnormalizado a 3NF
+   - `3NF_to_BCNF`: Tercera Forma Normal a BCNF
+
+2. **Optimización**:
+   - `index_design`: Diseño de índices
+   - `query_optimization`: Optimización de consultas
+   - `storage_optimization`: Optimización de almacenamiento
+
+3. **Relaciones**:
+   - `relationship_modeling`: Modelado de relaciones
+   - `foreign_keys`: Diseño de claves foráneas
+   - `composite_keys`: Claves compuestas
+
+4. **Vistas y Esquemas**:
+   - `view_design`: Diseño de vistas
+   - `schema_organization`: Organización de esquemas
+   - `partitioning`: Particionamiento de tablas
+
 ## 💡 Detalles Importantes
 
 ### Flujo de Generación
